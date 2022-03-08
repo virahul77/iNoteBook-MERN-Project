@@ -30,7 +30,52 @@ const NoteState = (props)=> {
           "tag": "Its a mern project",
           "date": "2022-02-28T04:57:32.606Z",
           "__v": 0
-        }
+        },
+        {
+            "_id": "621c563c0b381aa6de158b5e",
+            "user": "621b308f050738838f26cdb4",
+            "title": "hello rohit",
+            "description": "i am js develpor stack web develpoment",
+            "tag": "Its a mern project",
+            "date": "2022-02-28T04:57:32.606Z",
+            "__v": 0
+          },
+          {
+            "_id": "621c563c0b381aa6de158b5e",
+            "user": "621b308f050738838f26cdb4",
+            "title": "hello rohit",
+            "description": "i am js develpor stack web develpoment",
+            "tag": "Its a mern project",
+            "date": "2022-02-28T04:57:32.606Z",
+            "__v": 0
+          },
+          {
+            "_id": "621c563c0b381aa6de158b5e",
+            "user": "621b308f050738838f26cdb4",
+            "title": "hello rohit",
+            "description": "i am js develpor stack web develpoment",
+            "tag": "Its a mern project",
+            "date": "2022-02-28T04:57:32.606Z",
+            "__v": 0
+          },
+          {
+            "_id": "621c563c0b381aa6de158b5e",
+            "user": "621b308f050738838f26cdb4",
+            "title": "hello rohit",
+            "description": "i am js develpor stack web develpoment",
+            "tag": "Its a mern project",
+            "date": "2022-02-28T04:57:32.606Z",
+            "__v": 0
+          },
+          {
+            "_id": "621c563c0b381aa6de158b5e",
+            "user": "621b308f050738838f26cdb4",
+            "title": "hello rohit",
+            "description": "i am js develpor stack web develpoment",
+            "tag": "Its a mern project",
+            "date": "2022-02-28T04:57:32.606Z",
+            "__v": 0
+          }
       ]
       const [notes,setNotes] = useState(notesInitial)
 
