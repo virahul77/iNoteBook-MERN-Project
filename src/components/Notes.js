@@ -12,15 +12,16 @@ const Notes = () => {
     getNotes();
   }, []);
 
-  const updateNote = (currentNote) => {
-    ref.current.click();
-    setNote({id : currentNote._id, etitle : currentNote.title, edescription : currentNote.description, etag:currentNote.tag})
-  };
   const ref = useRef(null);
   const refClose = useRef(null)
 
+  const updateNote = (currentNote) => {
+    setNote({id : currentNote._id, etitle : currentNote.title, edescription : currentNote.description, etag : currentNote.tag})
+    ref.current.click();
+  };
+
   const handleClick = (e)=> {
-    editNote(note.id,note.edescription,note.etag)
+    editNote(note.id,note.etitle,note.edescription,note.etag)
     refClose.current.click()
   }
 
