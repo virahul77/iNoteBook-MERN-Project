@@ -2,86 +2,39 @@ import React, { useState } from "react";
 import noteContext from "./noteContext";
 
 const NoteState = (props)=> {
+    const host = 'http://localhost:5000'
 
-    const notesInitial = [
-        {
-          "_id": "621b98d4e3cc62a0b11a49b4",
-          "user": "621b308f050738838f26cdb4",
-          "title": "hello world",
-          "description": "please wake up early",
-          "tag": "first project of crud",
-          "date": "2022-02-27T15:29:24.802Z",
-          "__v": 0
-        },
-        {
-          "_id": "621c562f0b381aa6dce158b5c",
-          "user": "621b308f050738838f26cdb4",
-          "title": "hello rahul",
-          "description": "i am js develpor stack web develpoment",
-          "tag": "Its a mern project",
-          "date": "2022-02-28T04:57:19.508Z",
-          "__v": 0
-        },
-        {
-          "_id": "621c563c0b381axa6de158b5e",
-          "user": "621b308f050738838f26cdb4",
-          "title": "hello rohit",
-          "description": "i am js develpor stack web develpoment",
-          "tag": "Its a mern project",
-          "date": "2022-02-28T04:57:32.606Z",
-          "__v": 0
-        },
-        {
-            "_id": "621c563c0b381aa6dess158b5e",
-            "user": "621b308f050738838f26cdb4",
-            "title": "hello rohit",
-            "description": "i am js develpor stack web develpoment",
-            "tag": "Its a mern project",
-            "date": "2022-02-28T04:57:32.606Z",
-            "__v": 0
-          },
-          {
-            "_id": "621c563c0b381adsa6de158b5e",
-            "user": "621b308f050738838f26cdb4",
-            "title": "hello rohit",
-            "description": "i am js develpor stack web develpoment",
-            "tag": "Its a mern project",
-            "date": "2022-02-28T04:57:32.606Z",
-            "__v": 0
-          },
-          {
-            "_id": "621c563c0b381aasse6de158b5e",
-            "user": "621b308f050738838f26cdb4",
-            "title": "hello rohit",
-            "description": "i am js develpor stack web develpoment",
-            "tag": "Its a mern project",
-            "date": "2022-02-28T04:57:32.606Z",
-            "__v": 0
-          },
-          {
-            "_id": "621c563c0b381aa6dssde158b5e",
-            "user": "621b308f050738838f26cdb4",
-            "title": "hello rohit",
-            "description": "i am js develpor stack web develpoment",
-            "tag": "Its a mern project",
-            "date": "2022-02-28T04:57:32.606Z",
-            "__v": 0
-          },
-          {
-            "_id": "621c563c0b381aa6de158b5e",
-            "user": "621b308f050738838f26cdb4",
-            "title": "hello rohit",
-            "description": "i am js develpor stack web develpoment",
-            "tag": "Its a mern project",
-            "date": "2022-02-28T04:57:32.606Z",
-            "__v": 0
-          }
-      ]
+    const notesInitial = []
       const [notes,setNotes] = useState(notesInitial)
 
+      // GET ALL NOTES
+        const getNotes = async ()=> {
+            // API Call
+            const response = await fetch(`${host}/api/notes/fetchallnotes`, {
+              method : 'GET',
+              headers : {
+                'Content-Type' : 'application/json',
+                'auth-token'  : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIxYjMwOGYwNTA3Mzg4MzhmMjZjZGI0In0sImlhdCI6MTY0NTk2NDk0Nn0.-unLT6coACA3189QERN1gwMA5XZnUN4dRjZxKzBsBz4'
+              }
+            });
+            const json = await response.json()
+            console.log(json);
+            setNotes(json)
+        }
+
       // Add a Note
-        const addNote = (title,description,tag)=> {
+        const addNote = async (title,description,tag)=> {
             // TODO : API Call
+            const response = await fetch(`${host}/api/notes/addnote`, {
+              method : 'POST',
+              headers : {
+                'Content-Type' : 'application/json',
+                'auth-token'  : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIxYjMwOGYwNTA3Mzg4MzhmMjZjZGI0In0sImlhdCI6MTY0NTk2NDk0Nn0.-unLT6coACA3189QERN1gwMA5XZnUN4dRjZxKzBsBz4'
+              },
+              body : JSON.stringify({title,description,tag})
+            });
+            const json = await response.json()
+            console.log(json);
             console.log('Adding a new Note');
             let note = {
                 "_id": "621c562f0b381aa6dce158b5cg",
@@ -103,12 +56,32 @@ const NoteState = (props)=> {
         }
 
         // Edit a Note
-        const editNote = (id,title,description,tag)=> {
-
+        const editNote = async (id,title,description,tag)=> {
+          //API CALLS
+          const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
+            method : 'POST',
+            headers : {
+              'Content-Type' : 'application/json',
+              'auth-token'  : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIxYjMwOGYwNTA3Mzg4MzhmMjZjZGI0In0sImlhdCI6MTY0NTk2NDk0Nn0.-unLT6coACA3189QERN1gwMA5XZnUN4dRjZxKzBsBz4'
+            },
+            body : JSON.stringify({title,description,tag})
+          });
+          const json = await response.json()
+          
+          //Logic to edit in client side
+          for (let index = 0; index < notes.length; index++) {
+            const element = notes[index];
+            if(element._id === id){
+              element.title = title ;
+              element.description = description ;
+              element.tag = tag ;
+            }
+            
+          }
         }
 
     return (
-        <noteContext.Provider value={{notes,setNotes,addNote,deleteNote,editNote}}>
+        <noteContext.Provider value={{notes,setNotes,addNote,deleteNote,editNote,getNotes}}>
             {props.children}
         </noteContext.Provider>
     )
