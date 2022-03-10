@@ -1,0 +1,33 @@
+add about page
+add loading spinner and alert modification
+client side input validation and notification
+wecome user alert "welcome to iNoteBook user"
+and logout message with thanks for using inotebook see you soon
+welcome to inotebook Your iNoteBookon the cloud. 
+adding tag to view also as top right badge
+sort by badge
+create custom dark mode
+search on notes
+col-md-3 the size of your notebook box
+remove unnecessary console logs
+
+create landing page with 3 floating photos and details
+login signup and your notes if already signed in
+check responsibility
+
+footer
+move to top and bottom (or certain distance)
+fixed navbar
+
+without login if one click home message. welcome to inotebook please login or signup to continue
+(add otp validation with email/phone in case forget password recover option)
+on login page show sign up option and vice versa
+
+send auto email/phone msg to user for login 
+sort by tag as an option whatever we select. get sorted auto.
+
+add confirm password same validation and after ok right green round tik
+black-white rounded navbar li 
+
+
+
