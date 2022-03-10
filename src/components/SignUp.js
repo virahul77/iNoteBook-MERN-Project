@@ -1,5 +1,5 @@
 import React , {useState} from 'react'
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 const SignUp = (props) => {
   const [credential,setCredential] = useState({name : '', email : '', password : '', cpassword : ""})
@@ -31,6 +31,7 @@ const SignUp = (props) => {
   }
   return (
     <div className="container">
+      <h2>Welcome to iNoteBook. Sign Up here to start with iNoteBook</h2>
       <form onSubmit={handleSubmit}>
     <div className="mb-3">
       <label htmlFor="name" className="form-label">Name</label>
@@ -51,6 +52,7 @@ const SignUp = (props) => {
     </div>
     <button type="submit" className="btn btn-primary">Sign Up</button>
   </form>
+  <h3 className='my-3'>Already Have an Account Please <Link className='btn btn-outline-success' to="/login">Login Here</Link> To Continue </h3>
     </div>
   )
 }

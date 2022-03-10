@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 const Login = (props) => {
   const [credential,setCredential] = useState({email : '', password : ''})
@@ -27,6 +27,7 @@ const Login = (props) => {
     setCredential({...credential, [e.target.name]:e.target.value})
   }
   return (
+    <div className="container">
     <form onSubmit={handleSubmit}>
       <h2>Login to Continue to iNoteBook</h2>
     <div className="mb-3">
@@ -40,6 +41,8 @@ const Login = (props) => {
     </div>
     <button type="submit" className="btn btn-primary">Log In</button>
   </form>
+  <h3 className='my-3'>New to iNoteBook Please <Link className='btn btn-outline-success' to="/signup">SignUp Here</Link> </h3>
+  </div>
   )
 }
 
