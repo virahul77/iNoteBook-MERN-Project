@@ -17,10 +17,11 @@ router.post('/createuser', [
     body('email',"Email must be valid email farmate").isEmail(),
     body('password',"Password must be min 5 char").isLength({ min: 5 })
 ],async (req,res)=>{
+  let success = false;
   // If there are errors return the bad request and errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });}
+      return res.status(400).json({success, errors: errors.array() });}
       // Check whether email exist already
       let user = await User.findOne({email : req.body.email})
 
@@ -46,7 +47,8 @@ router.post('/createuser', [
         const authtoken = jwt.sign(data,JWT_SECRET)
         // console.log(jwtdata);
         // console.log(user);
-        res.json({authtoken})
+        success = true
+        res.json({success ,authtoken})
       // }
       } catch (error) {
         console.log(error.message);
