@@ -9,6 +9,7 @@ import Alert from './components/Alert';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import {useState} from 'react'
+import LandingPage from './components/LandingPage';
 
 function App() {
   const [alert , setAlert] = useState(null)
@@ -27,6 +28,7 @@ function App() {
     <div className="container">
     <Routes>
     <Route exact path="/" element={<Home showAlert={showAlert} />} />
+    <Route exact path="/landing" element={<LandingPage showAlert={showAlert} />} />
     <Route exact path="/about" element={<About />} />
     <Route exact path="/login" element={<Login showAlert={showAlert} />} />
     <Route exact path="/signup" element={<SignUp showAlert={showAlert} />} />

@@ -35,20 +35,20 @@ const SignUp = (props) => {
       <form onSubmit={handleSubmit}>
     <div className="mb-3">
       <label htmlFor="name" className="form-label">Name</label>
-      <input onChange={onChange} type="text" className="form-control" onChange={onChange} id="name" name='name' value={credential.name} aria-describedby="emailHelp" />
+      <input type="text" className="form-control" onChange={onChange} id="name" name='name' value={credential.name} aria-describedby="emailHelp" />
     </div>
     <div className="mb-3">
       <label htmlFor="email" className="form-label">Email address</label>
-      <input onChange={onChange} type="email" className="form-control" onChange={onChange} id="email" name='email' value={credential.email} aria-describedby="emailHelp" />
+      <input type="email" className="form-control" onChange={onChange} id="email" name='email' value={credential.email} aria-describedby="emailHelp" />
       <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
     </div>
     <div className="mb-3">
       <label htmlFor="password" className="form-label">Password</label>
-      <input onChange={onChange} type="password" className="form-control" onChange={onChange} id="password" name="password" value={credential.password} minLength={5} required />
+      <input type="password" className="form-control" onChange={onChange} id="password" name="password" value={credential.password} minLength={5} required />
     </div>
     <div className="mb-3">
       <label htmlFor="cpassword" className="form-label">Confirm Password</label>
-      <input onChange={onChange} type="password" className="form-control" onChange={onChange} id="cpassword" name="cpassword" value={credential.cpassword} minLength={5} required />
+      <input type="password" className="form-control" onChange={onChange} id="cpassword" name="cpassword" value={credential.cpassword} minLength={5} required />
     </div>
     <button type="submit" className="btn btn-primary">Sign Up</button>
   </form>

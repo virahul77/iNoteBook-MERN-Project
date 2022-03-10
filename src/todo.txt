@@ -1,5 +1,5 @@
-add about page
-add loading spinner and alert modification
+ add about page
+ add loading spinner and alert modification
 client side input validation and notification
 wecome user alert "welcome to iNoteBook user"
 and logout message with thanks for using inotebook see you soon
