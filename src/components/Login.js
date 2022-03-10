@@ -19,8 +19,9 @@ const Login = (props) => {
       // Redirect to home
       localStorage.setItem('token',json.authtoken)
       navigate('/')
+      props.showAlert("Logged In Successfully", "success")
     }
-    else {alert('Invalid Credentials')}
+    else props.showAlert("Invalid Credentials", "dander")
   }
   const onChange = (e)=> {
     setCredential({...credential, [e.target.name]:e.target.value})
